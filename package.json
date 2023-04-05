@@ -7,6 +7,10 @@
   "bin": {
     "create-kwoka-pkg": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "kwoka-pkg"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint --fix ./src; prettier --write ./src --loglevel error",

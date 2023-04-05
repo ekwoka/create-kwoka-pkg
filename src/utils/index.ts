@@ -7,6 +7,6 @@ export {
   inCYAN,
   RESET,
   colors,
-} from './colors';
-export { execShellCommand } from './execShellCommand';
-export { progressDraft, intervalProgress } from './progressDraft';
+} from './colors.js';
+export { execShellCommand } from './execShellCommand.js';
+export { progressDraft, intervalProgress } from './progressDraft.js';
