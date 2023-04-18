@@ -35,7 +35,9 @@ await new Promise((res, rej) => {
 copyProgress(inCYAN('Copied scaffold'), inGREEN('[OK]'));
 
 const installProgress = intervalProgress('Installing dependencies...');
-await execShellCommand(`cd ${dir} && pnpm i`);
+await execShellCommand(
+  `cd ${dir} && pnpm i && pnpm dlx npm-check-updates -u && pnpm i`
+);
 installProgress(inCYAN('Installed dependencies'), inGREEN('[OK]'));
 updateStatus(inGREEN('Kwoka PKG setup successfully'));
 
