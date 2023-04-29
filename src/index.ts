@@ -34,11 +34,16 @@ await new Promise((res, rej) => {
 });
 copyProgress(inCYAN('Copied scaffold'), inGREEN('[OK]'));
 
-const installProgress = intervalProgress('Installing dependencies...');
+const updateProgress = intervalProgress('Updating dependencies...');
 await execShellCommand(
-  `cd ${dir} && pnpm i && pnpm dlx npm-check-updates -u && pnpm i`
+  `pnpm dlx npm-check-updates -u --packageFile ./${dir}/package.json --concurrency 15`
 );
+updateProgress(inCYAN('Updated dependencies'), inGREEN('[OK]'));
+
+const installProgress = intervalProgress('Installing dependencies...');
+await execShellCommand(`pnpm i -C=${dir}`);
 installProgress(inCYAN('Installed dependencies'), inGREEN('[OK]'));
+
 updateStatus(inGREEN('Kwoka PKG setup successfully'));
 
 console.log('Enjoy your new pkg!');

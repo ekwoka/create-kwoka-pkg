@@ -2,3 +2,4 @@ node_modules
 dist
 coverage
 .env
+kwoka-pkg/pnpm-lock.yaml
