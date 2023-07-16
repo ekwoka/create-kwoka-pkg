@@ -1,25 +1,39 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import { resolve } from 'node:path';
+
 export default defineConfig({
-  plugins: [tsconfigPaths()],
-  root: 'src',
+  root: resolve(__dirname),
+  plugins: [
+    dts({
+      entryRoot: resolve(__dirname, 'src'),
+      tsconfigPath: resolve(__dirname, 'tsconfig.json'),
+    }),
+    tsconfigPaths(),
+  ],
   define: {
     'import.meta.vitest': 'undefined',
   },
   build: {
-    outDir: '../dist',
-  },
-  test: {
-    root: './',
-    globals: true,
-    includeSource: [],
-    coverage: {
-      provider: 'c8',
-      reporter: ['text-summary', 'text', 'html'],
+    target: 'esnext',
+    outDir: resolve(__dirname, 'dist'),
+    lib: {
+      entry: resolve(__dirname, 'src', 'index.ts'),
+      formats: ['es'],
     },
-    reporters: ['dot'],
-    deps: {},
+    minify: false,
+    rollupOptions: {
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: ({ name: fileName }) => {
+          return `${fileName}.js`;
+        },
+        sourcemap: true,
+      },
+    },
   },
 });

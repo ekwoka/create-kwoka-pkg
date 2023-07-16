@@ -1,8 +1,8 @@
 {
-  // Change this to match your project
   "include": ["src/**/*"],
   "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"],
   "compilerOptions": {
+    "types": ["vitest/importMeta", "vitest/globals"],
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
