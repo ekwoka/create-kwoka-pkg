@@ -25,22 +25,22 @@
     "@trivago/prettier-plugin-sort-imports": "4.1.1",
     "@types/command-line-args": "5.2.0",
     "@types/command-line-usage": "5.0.2",
-    "@types/ncp": "^2.0.5",
-    "@types/node": "18.16.3",
-    "@typescript-eslint/eslint-plugin": "5.59.1",
-    "@typescript-eslint/parser": "5.59.1",
-    "eslint": "8.39.0",
-    "eslint-plugin-filename-export": "1.0.3",
+    "@types/ncp": "2.0.5",
+    "@types/node": "20.4.2",
+    "@typescript-eslint/eslint-plugin": "6.0.0",
+    "@typescript-eslint/parser": "6.0.0",
+    "eslint": "8.45.0",
+    "eslint-plugin-filename-export": "1.0.4",
     "husky": "8.0.3",
-    "lint-staged": "13.2.2",
-    "prettier": "2.8.8",
-    "typescript": "5.0.4"
+    "lint-staged": "13.2.3",
+    "prettier": "3.0.0",
+    "typescript": "5.1.6"
   },
   "dependencies": {
     "command-line-args": "5.2.1",
     "command-line-usage": "7.0.1",
     "draftlog": "1.0.13",
-    "ncp": "^2.0.0"
+    "ncp": "2.0.0"
   },
   "prettier": {
     "singleQuote": true,
@@ -65,5 +65,11 @@
     "*.json": [
       "prettier --write"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "semver@>=7.0.0 <7.5.2": ">=7.5.2",
+      "typescript@<=5.1.6": "5.1.6"
+    }
   }
 }
