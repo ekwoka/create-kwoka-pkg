@@ -36,7 +36,7 @@ copyProgress(inCYAN('Copied scaffold'), inGREEN('[OK]'));
 
 const updateProgress = intervalProgress('Updating dependencies...');
 await execShellCommand(
-  `pnpm dlx npm-check-updates -u --packageFile ./${dir}/package.json --concurrency 15`
+  `pnpm dlx npm-check-updates -u --packageFile ./${dir}/package.json --concurrency 15`,
 );
 updateProgress(inCYAN('Updated dependencies'), inGREEN('[OK]'));
 
